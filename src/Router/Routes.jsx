@@ -6,6 +6,7 @@ import Register from "../Pages/Auth/Registration";
 import AllCourses from "../Pages/AllCourses/AllCourses";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
+import AddCourse from "../Pages/AddCourse/AddCourse";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             <AllCourses />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/add-course",
+        element: <AddCourse />,
       },
       {
         path: "/auth/login",

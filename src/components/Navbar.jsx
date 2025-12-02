@@ -45,7 +45,7 @@ const Navbar = () => {
                     <a>My Enrolled course</a>
                   </li>
                   <li>
-                    <a>Add course</a>
+                    <Link to={"/add-course"}>Add course</Link>
                   </li>
                   <li>
                     <a>My added course</a>
@@ -81,7 +81,7 @@ const Navbar = () => {
                     <a>My Enrolled course</a>
                   </li>
                   <li>
-                    <a>Add course</a>
+                    <Link to={"/add-course"}>Add course</Link>
                   </li>
                   <li>
                     <a>My added course</a>
