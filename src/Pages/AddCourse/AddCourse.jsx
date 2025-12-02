@@ -1,7 +1,25 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react';
 import toast from 'react-hot-toast';
 
 const AddCourse = () => {
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: async (newCourse) => {
+      const { data } = await axios.post("http://localhost:3000/courses", newCourse);
+      return data;
+    }, 
+    onSuccess: () => {
+      toast.success("Course Added Successfully!");
+      queryClient.invalidateQueries(["courses"]);
+
+    },
+    onError: () => {
+      toast.error("Failed to add course!")
+    },
+  })
     const handleAddCourse = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -21,9 +39,8 @@ const AddCourse = () => {
           description,
         };
 
-        console.log(newCourse)
-
-        toast.success("Course added Successfully!");
+      // console.log(newCourse)
+        mutate(newCourse)
         form.reset();
 
     }

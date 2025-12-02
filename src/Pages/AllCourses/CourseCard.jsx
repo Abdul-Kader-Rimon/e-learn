@@ -20,7 +20,7 @@ const Card = ({ title, image, price, category, duration}) => {
           <div className="card__text">
             <p className="card__title">{title}</p>
             <p className="font-semibold">Category: {category}</p>
-            <p className="font-semibold">Duration: {duration}</p>
+            <p className="font-semibold">Duration: {duration} hours</p>
           </div>
           <div className="card__footer">
             <div className="card__price">${price}</div>
