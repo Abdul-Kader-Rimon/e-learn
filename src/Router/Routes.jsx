@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import AddCourse from "../Pages/AddCourse/AddCourse";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
+import MyCourses from "../Pages/MyCourses/MyCourses";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <CourseDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-courses",
+        element: (
+          <PrivateRoute>
+            <MyCourses />
           </PrivateRoute>
         ),
       },

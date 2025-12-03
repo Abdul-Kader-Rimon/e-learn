@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import styled from "styled-components";
 
-const Card = ({_id, title, image, price, category, duration}) => {
+const CourseCard = ({_id, title, image, price, category, duration}) => {
   return (
     <StyledWrapper>
       <div className="card">
@@ -287,4 +287,4 @@ const StyledWrapper = styled.div`
 `;
 
 
-export default Card;
+export default CourseCard;

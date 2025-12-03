@@ -4,8 +4,7 @@
 
 /* button */
    .button {
-    width: 200px;
-    height: 50px;
+ 
     border: 3px solid #7c3aed;
     border-radius: 45px;
     transition: all 0.3s;
@@ -20,3 +19,21 @@
     color: white;
     font-size: 1.5em;
   }
+
+ 
+
+   .simple-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+ 
+.simple-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 38px 35px rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.6); /* light purple border */
+}

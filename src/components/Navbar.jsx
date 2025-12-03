@@ -48,7 +48,7 @@ const Navbar = () => {
                     <Link to={"/add-course"}>Add course</Link>
                   </li>
                   <li>
-                    <a>My added course</a>
+                    <Link to={"/my-courses"}>My added course</Link>
                   </li>
                 </ul>
               </li>
@@ -84,7 +84,7 @@ const Navbar = () => {
                     <Link to={"/add-course"}>Add course</Link>
                   </li>
                   <li>
-                    <a>My added course</a>
+                    <Link to={"/my-courses"}>My added course</Link>
                   </li>
                 </ul>
               </details>

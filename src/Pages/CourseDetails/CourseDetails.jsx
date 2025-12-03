@@ -72,7 +72,7 @@ const CourseDetails = () => {
 
           
 
-          <button className="button my-5">Enroll Now</button>
+          <button className="button my-5 py-2 px-10">Enroll Now</button>
         </div>
       </div>
     </div>

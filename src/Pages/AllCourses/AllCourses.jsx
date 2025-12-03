@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import Card from "./CourseCard";
+import CourseCard from "./CourseCard";
+ 
+ 
 
 const fetchCourses = async () => {
   const { data } = await axios.get("http://localhost:3000/courses");
@@ -24,7 +26,7 @@ const AllCourses = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
       {courses.map((courses , index) => (
-        <Card
+        <CourseCard
           key={index}
           _id={courses._id}
           title={courses.title}
