@@ -35,6 +35,9 @@ const Card = ({ title, image, price, category, duration}) => {
               </svg>
             </div>
           </div>
+          <div>
+            <button>View Details</button>
+          </div>
         </div>
       </div>
     </StyledWrapper>
@@ -153,7 +156,6 @@ const StyledWrapper = styled.div`
     font-weight: 700;
     transition: all 0.3s ease;
   }
- 
 
   .card__footer {
     display: flex;
@@ -183,11 +185,28 @@ const StyledWrapper = styled.div`
     transform: scale(0.9);
   }
 
+  button {
+    width: 100%;
+    height: 40px;
+    border: 3px solid #7c3aed;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    color: white;
+    font-size: 1.4em;
+  }
+
   /* Hover Effects */
   .card:hover {
     transform: translateY(-10px);
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-color: rgba(124, 58, 237, 0.2);
   }
@@ -261,7 +280,8 @@ const StyledWrapper = styled.div`
     100% {
       transform: scale(1);
     }
-  }`;
+  }
+`;
 
 
 export default Card;

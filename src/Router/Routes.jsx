@@ -7,6 +7,7 @@ import AllCourses from "../Pages/AllCourses/AllCourses";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import AddCourse from "../Pages/AddCourse/AddCourse";
+import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ export const router = createBrowserRouter([
         element: <AddCourse />,
       },
       {
+        path: "/course-details",
+        element: (
+          <PrivateRoute>
+            <CourseDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/auth/login",
         element: <Login />,
       },
@@ -39,7 +48,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/auth/forgetpassword",
-        element: <ForgetPassword/>,
+        element: <ForgetPassword />,
       },
     ],
   },
