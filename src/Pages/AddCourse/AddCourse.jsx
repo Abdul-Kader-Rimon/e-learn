@@ -1,10 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../Context/AuthContext';
 
 const AddCourse = () => {
+  const {user} = useContext(AuthContext)
   const queryClient = useQueryClient();
+
 
   const { mutate } = useMutation({
     mutationFn: async (newCourse) => {
@@ -29,6 +32,7 @@ const AddCourse = () => {
         const price = form.price.value;
         const category = form.category.value;
         const description = form.description.value;
+        const  email = form.email.value;
 
         const newCourse = {
           title,
@@ -37,6 +41,7 @@ const AddCourse = () => {
           price,
           category,
           description,
+          email
         };
 
       // console.log(newCourse)
@@ -128,6 +133,17 @@ const AddCourse = () => {
                    placeholder="Course Description"
                    required
                  ></textarea>
+               </div>
+               <div className="flex flex-col gap-2">
+                 <label className="label">Email</label>
+                 <input
+                   value={user?.email}
+                   type="email"
+                   name="email"
+                   className="input w-full rounded-full focus:outline-gray-300"
+                   placeholder="Course Title"
+                   required
+                 />
                </div>
 
                <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full">

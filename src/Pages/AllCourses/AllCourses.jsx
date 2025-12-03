@@ -20,12 +20,13 @@ const AllCourses = () => {
   });
 
   if (isLoading) return <p className="text-center mt-5">Loading...</p>;
-    if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
+  if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {courses.map((courses) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
+      {courses.map((courses , index) => (
         <Card
-          key={courses._id}
+          key={index}
+          _id={courses._id}
           title={courses.title}
           image={courses.image}
           price={courses.price}

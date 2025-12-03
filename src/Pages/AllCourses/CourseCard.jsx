@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 import styled from "styled-components";
 
-const Card = ({ title, image, price, category, duration}) => {
+const Card = ({_id, title, image, price, category, duration}) => {
   return (
     <StyledWrapper>
       <div className="card">
@@ -36,7 +37,9 @@ const Card = ({ title, image, price, category, duration}) => {
             </div>
           </div>
           <div>
-            <button>View Details</button>
+            <Link to={`/course-details/${_id}`}>
+              <button>View Details</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -151,7 +154,7 @@ const StyledWrapper = styled.div`
 
   .card__title {
     color: var(--card-text);
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 0;
     font-weight: 700;
     transition: all 0.3s ease;
@@ -167,7 +170,7 @@ const StyledWrapper = styled.div`
   .card__price {
     color: var(--card-text);
     font-weight: 700;
-    font-size: 1.7em;
+    font-size: 1.4em;
     transition: all 0.3s ease;
   }
 
