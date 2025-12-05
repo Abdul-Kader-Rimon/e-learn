@@ -1,7 +1,7 @@
  import React from 'react';
 import { Link } from 'react-router';
  
- const MyCoursesCard = ({title , image , price , category , duration}) => {
+ const MyCoursesCard = ({_id, title , image , price , category , duration}) => {
     return (
       <div className="border p-5 rounded-xl simple-card">
         <img
@@ -14,12 +14,12 @@ import { Link } from 'react-router';
         <p className=" font-semibold"> Duration: {duration} hours</p>
         <p className="my-2 font-bold text-purple-600"> Price: ${price}</p>
 
-        <Link>
+        <Link to={`/course-details/${_id}`}>
           <button className="button w-full px-4 py-2">View Details</button>
         </Link>
 
         <div className="mt-4 flex gap-2 justify-between items-center">
-          <Link>
+          <Link to={`/update-course/${_id}`}>
             <button className="button w-full px-4 md:px-10  py-2">
               Update
             </button>
