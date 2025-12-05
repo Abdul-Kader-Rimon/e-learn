@@ -51,15 +51,14 @@ const UpdateCourse = () => {
         event.preventDefault();
         const form = event.target;
         const updatedCourse = {
-              
-         title: form.title.value,
-         image: form.image.value,
-         duration: form.duration.value,
-         price: form.price.value,
-         category: form.category.value,
-         description: form.description.value,
-            email: user?.email,
-         createdAt:course?.createdAt,
+          title: form.title.value,
+          image: form.image.value,
+          duration: parseInt(form.duration.value),
+          price: parseInt(form.price.value),
+          category: form.category.value,
+          description: form.description.value,
+          email: user?.email,
+          createdAt: course?.createdAt,
         };
 
         mutate(updatedCourse);
@@ -79,7 +78,7 @@ const UpdateCourse = () => {
               <div className="flex flex-col gap-2">
                 <label className="label">Course Title</label>
                 <input
-                defaultValue={course?.title}
+                  defaultValue={course?.title}
                   type="text"
                   name="title"
                   className="input w-full rounded-full focus:outline-gray-300"
@@ -91,7 +90,7 @@ const UpdateCourse = () => {
               <div className="flex flex-col gap-2">
                 <label className="label">Image URL</label>
                 <input
-                defaultValue={course?.image}
+                  defaultValue={course?.image}
                   type="text"
                   name="image"
                   className="input w-full rounded-full focus:outline-gray-300"
@@ -103,7 +102,7 @@ const UpdateCourse = () => {
               <div className="flex flex-col gap-2">
                 <label className="label">Price (USD)</label>
                 <input
-                defaultValue={course?.price}
+                  defaultValue={course?.price}
                   type="text"
                   name="price"
                   className="input w-full rounded-full focus:outline-gray-300"
@@ -115,7 +114,7 @@ const UpdateCourse = () => {
               <div className="flex flex-col gap-2">
                 <label className="label">Duration</label>
                 <input
-                defaultValue={course?.duration}
+                  defaultValue={course?.duration}
                   type="text"
                   name="duration"
                   className="input w-full rounded-full focus:outline-gray-300"
@@ -128,7 +127,7 @@ const UpdateCourse = () => {
                 {" "}
                 <label className="label">Category</label>{" "}
                 <select
-                defaultValue={course?.category}
+                  defaultValue={course?.category}
                   name="category"
                   className="select w-full rounded-full focus:outline-gray-300"
                   required
@@ -136,13 +135,14 @@ const UpdateCourse = () => {
                   {" "}
                   <option value="">Select Category</option>{" "}
                   <option value="Web Development">Web Development</option>{" "}
-                  <option value="App Development">App Development</option>{" "}
-                  <option value="UI/UX Design">UI/UX Design</option>{" "}
-                  <option value="Graphics Design">Graphics Design</option>{" "}
-                  <option value="Digital Marketing">Digital Marketing</option>{" "}
-                  <option value="Cyber Security">Cyber Security</option>{" "}
-                  <option value="Machine Learning">Machine Learning</option>{" "}
-                  <option value="Data Science">Data Science</option>{" "}
+                  <option value="Full Stack">Full Stack</option>{" "}
+                  <option value="Design">Design</option>{" "}
+                  <option value="Frontend">Frontend</option>{" "}
+                  <option value="Programming">Programming</option>{" "}
+                  <option value="Marketing">Marketing</option>{" "}
+                  <option value="Backend">Backend</option>{" "}
+                  <option value="Data Analysis">Data Analysis</option>{" "}
+                  <option value="Mobile Development">Mobile Development</option>{" "}
                   <option value="Artificial Intelligence">
                     {" "}
                     Artificial Intelligence{" "}
@@ -153,7 +153,7 @@ const UpdateCourse = () => {
               <div className="flex flex-col gap-2">
                 <label className="label">Description</label>
                 <textarea
-                defaultValue={course?.description}
+                  defaultValue={course?.description}
                   name="description"
                   className="textarea w-full rounded-xl focus:outline-gray-300"
                   placeholder="Course Description"
@@ -173,7 +173,7 @@ const UpdateCourse = () => {
               </div>
 
               <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full">
-                 Update Course
+                Update Course
               </button>
             </fieldset>
           </form>

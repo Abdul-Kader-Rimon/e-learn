@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router";
+import EnrollCourse from "../EnrollCourse/EnrollCourse";
+import { AuthContext } from "../../Context/AuthContext";
 
 
 const fetchSingleCourseData = async (id) => {
@@ -11,7 +13,8 @@ const fetchSingleCourseData = async (id) => {
 
 
 const CourseDetails = () => {
-    const { id } = useParams();
+  const { id } = useParams();
+  const { user } = useContext(AuthContext);
     const {
         data: course,
         isLoading,
@@ -62,17 +65,23 @@ const CourseDetails = () => {
                 <div className="font-semibold">${course.price}</div>
               </div>
             </div>
-            
+
             <div className="my-3 text-slate-600">
-            {" "}
-            <span className="font-bold">Discription: </span>
-            {course.description}
-          </div>
+              {" "}
+              <span className="font-bold">Discription: </span>
+              {course.description}
+            </div>
           </div>
 
-          
-
-          <button className="button my-5 py-2 px-10">Enroll Now</button>
+          {/* <button className="button my-5 py-2 px-10">Enroll Now</button> */}
+          {/* You can open the modal using document.getElementById('ID').showModal() method */}
+          <button
+            className="button my-5 py-2 px-10"
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+          >
+            Enroll Now
+          </button>
+          <EnrollCourse user={user} course={course} />
         </div>
       </div>
     </div>

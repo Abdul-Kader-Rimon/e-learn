@@ -30,8 +30,8 @@ const AddCourse = () => {
         const form = event.target;
         const title = form.title.value;
         const image = form.image.value;
-        const duration = form.duration.value;
-        const price = form.price.value;
+        const duration = parseInt(form.duration.value);
+        const price = parseInt(form.price.value);
         const category = form.category.value;
         const description = form.description.value;
         const  email = form.email.value;
