@@ -42,7 +42,7 @@ const Navbar = () => {
                 <a>Dashboard</a>
                 <ul className="p-2">
                   <li>
-                    <a>My Enrolled course</a>
+                    <Link to={"/my-enrolledCourses"}>My Enrolled course</Link>
                   </li>
                   <li>
                     <Link to={"/add-course"}>Add course</Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
                   "
                 >
                   <li>
-                    <a>My Enrolled course</a>
+                    <Link to={"/my-enrolledCourses"}>My Enrolled course</Link>
                   </li>
                   <li>
                     <Link to={"/add-course"}>Add course</Link>
