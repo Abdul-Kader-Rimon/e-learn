@@ -3,10 +3,12 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthContext';
+import { useNavigate } from 'react-router';
 
 const AddCourse = () => {
   const {user} = useContext(AuthContext)
   const queryClient = useQueryClient();
+  const navigation = useNavigate()
 
 
   const { mutate } = useMutation({
@@ -45,7 +47,8 @@ const AddCourse = () => {
         };
 
       // console.log(newCourse)
-        mutate(newCourse)
+      mutate(newCourse)
+      navigation("/my-courses");
         form.reset();
 
     }

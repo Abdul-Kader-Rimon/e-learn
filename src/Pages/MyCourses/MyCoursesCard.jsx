@@ -1,7 +1,33 @@
- import React from 'react';
+ import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import React from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router';
  
- const MyCoursesCard = ({_id, title , image , price , category , duration}) => {
+const MyCoursesCard = ({ _id, title, image, price, category, duration }) => {
+     
+    const queryClient = useQueryClient();
+
+    const deleteMutation = useMutation({
+      mutationFn: async (id) => {
+        const { data } = await axios.delete(
+          `http://localhost:3000/delete-course/${id}`
+        );
+        return data;
+      },
+      onSuccess: () => {
+        toast.success("Course deleted Successfully");
+        queryClient.invalidateQueries(["my-courses"]);
+         
+      },
+      onError: () => {
+        toast.error("Failed to delete Course ");
+      },
+    });
+    const handleDelete = (id) => {
+    deleteMutation.mutate(id)
+    }
+
     return (
       <div className="border p-5 rounded-xl simple-card">
         <img
@@ -25,7 +51,7 @@ import { Link } from 'react-router';
             </button>
           </Link>
           <Link>
-            <button className="button w-full px-4 md:px-10   py-2">
+            <button onClick={()=>handleDelete(_id)} className="button w-full px-4 md:px-10   py-2">
               Delete
             </button>
           </Link>
