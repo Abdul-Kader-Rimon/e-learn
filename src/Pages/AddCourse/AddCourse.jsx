@@ -114,13 +114,16 @@ const AddCourse = () => {
                    {" "}
                    <option value="">Select Category</option>{" "}
                    <option value="Web Development">Web Development</option>{" "}
-                   <option value="App Development">App Development</option>{" "}
-                   <option value="UI/UX Design">UI/UX Design</option>{" "}
-                   <option value="Graphics Design">Graphics Design</option>{" "}
-                   <option value="Digital Marketing">Digital Marketing</option>{" "}
-                   <option value="Cyber Security">Cyber Security</option>{" "}
-                   <option value="Machine Learning">Machine Learning</option>{" "}
-                   <option value="Data Science">Data Science</option>{" "}
+                   <option value="Full Stack">Full Stack</option>{" "}
+                   <option value="Design">Design</option>{" "}
+                   <option value="Frontend">Frontend</option>{" "}
+                   <option value="Programming">Programming</option>{" "}
+                   <option value="Marketing">Marketing</option>{" "}
+                   <option value="Backend">Backend</option>{" "}
+                   <option value="Data Analysis">Data Analysis</option>{" "}
+                   <option value="Mobile Development">
+                     Mobile Development
+                   </option>{" "}
                    <option value="Artificial Intelligence">
                      {" "}
                      Artificial Intelligence{" "}
