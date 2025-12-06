@@ -1,10 +1,12 @@
 import React from 'react';
 import HeroBanner from './Hero';
+import PopularCourses from './PopularCourses';
 
 const Home = () => {
     return (
         <div>
-             <HeroBanner/>
+            <HeroBanner />
+            <PopularCourses/>
         </div>
     );
 };
