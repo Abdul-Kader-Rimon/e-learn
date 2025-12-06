@@ -6,7 +6,9 @@ import { FaRegIdBadge, FaUser } from 'react-icons/fa';
  
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  const [ isChecked, setIsChecked ] = useState(false);
+  const [isChecked, setIsChecked] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
 
   const handleThemeChange = () => {
@@ -16,6 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     const theme = isChecked ? "dark" : "light";
     document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme" , theme)
   },[isChecked])
 
 
@@ -131,7 +134,8 @@ const Navbar = () => {
             </svg>
             <input
               type="checkbox"
-              onClick={handleThemeChange}
+              checked={isChecked}
+              onChange={handleThemeChange}
               value="synthwave"
               className="toggle theme-controller"
             />
