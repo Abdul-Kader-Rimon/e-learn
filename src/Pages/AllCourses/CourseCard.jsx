@@ -5,7 +5,7 @@ import styled from "styled-components";
 const CourseCard = ({_id, title, image, price, category, duration}) => {
   return (
     <StyledWrapper>
-      <div className="card">
+      <div className="card dark:text-black">
         <div className="card__shine" />
         <div className="card__glow" />
         <div className="card__content">

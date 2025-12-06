@@ -31,7 +31,7 @@ const CourseDetails = () => {
   
 
   return (
-    <div className="max-w-4xl mx-auto p-6 ">
+    <div className="max-w-4xl mx-auto p-6  dark:text-black">
       <div className="rounded-2xl overflow-hidden shadow-xl bg-white ">
         <img
           src={course.image}
@@ -39,7 +39,7 @@ const CourseDetails = () => {
           className="w-full h-72 object-cover"
         />
 
-        <div className="p-6">
+        <div className="p-6 ">
           <h1 className="text-4xl font-bold">{course.title}</h1>
 
           <div className="mt-7 border rounded-xl p-5">
@@ -81,7 +81,7 @@ const CourseDetails = () => {
           >
             Enroll Now
           </button>
-          <EnrollCourse user={user} course={course} />
+          <EnrollCourse    user={user} course={course} />
         </div>
       </div>
     </div>

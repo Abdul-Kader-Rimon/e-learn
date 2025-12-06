@@ -45,9 +45,9 @@ const EnrollCourse = ({ user, course }) => {
     }
 
   return (
-    <div>
+    <div className="text-base-content">
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box">
+        <div className="modal-box ">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
@@ -104,8 +104,8 @@ const EnrollCourse = ({ user, course }) => {
                   type="number"
                   name="phone"
                   className="input w-full rounded-full focus:outline-gray-300"
-                   placeholder="Enter your Phone number"
-                   required
+                  placeholder="Enter your Phone number"
+                  required
                 />
               </div>
 
@@ -120,7 +120,9 @@ const EnrollCourse = ({ user, course }) => {
                 />
               </div>
 
-              <button type="submit" className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full"
+              <button
+                type="submit"
+                className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full"
               >
                 Payment Now
               </button>

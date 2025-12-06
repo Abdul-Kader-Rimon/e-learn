@@ -24,15 +24,11 @@ const MyEnrollCourses = () => {
     return (
       <div>
         <h1 className="text-3xl font-bold my-10 text-center">
-          My  Enrolled Courses
+          My Enrolled Courses
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 dark:text-black">
           {courses.map((course) => (
-            <MyEnrolledCourseCard
-              key={course._id}
-              course={course}
-               
-            />
+            <MyEnrolledCourseCard key={course._id} course={course} />
           ))}
         </div>
       </div>
