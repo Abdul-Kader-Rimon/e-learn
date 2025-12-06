@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import EnrollCourse from "../EnrollCourse/EnrollCourse";
 import { AuthContext } from "../../Context/AuthContext";
 import Loader from "../../components/Loader";
+import ErrorCard from "../../components/ErrorCard";
 
 
 const fetchSingleCourseData = async (id) => {
@@ -35,7 +36,7 @@ const CourseDetails = () => {
           </div>
         </div>
       );
-    if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
+    if (isError) return <ErrorCard message={error.message} />;
   
 
   return (

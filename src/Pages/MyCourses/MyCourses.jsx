@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import { useQuery } from '@tanstack/react-query';
 import MyCoursesCard from './MyCoursesCard';
 import Loader from '../../components/Loader';
+import ErrorCard from '../../components/ErrorCard';
  
 const fetchMyCourses = async (email) => {
   const { data } = await axios.get(`http://localhost:3000/my-courses?email=${email}`);
@@ -32,7 +33,7 @@ if (isLoading)
       </div>
     </div>
   );
-  if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
+ if (isError) return <ErrorCard message={error.message} />;
   
   return (
     <div>

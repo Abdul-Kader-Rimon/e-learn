@@ -3,6 +3,7 @@ import MyEnrolledCourseCard from './MyEnrolledCourseCard';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Loader from '../../components/Loader';
+import ErrorCard from '../../components/ErrorCard';
 
 const MyEnrollCourses = () => {
      const {
@@ -28,7 +29,7 @@ const MyEnrollCourses = () => {
            </div>
          </div>
        );
-     if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
+     if (isError) return <ErrorCard message={error.message} />;
     return (
       <div>
         <h1 className="text-3xl font-bold my-10 text-center">

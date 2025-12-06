@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import CourseCard from "./CourseCard";
 import Loader from "../../components/Loader";
+import ErrorCard from "../../components/ErrorCard";
 
 const fetchCourses = async (category) => {
   const { data } = await axios.get("http://localhost:3000/courses" , {params : {category : category || ""}});
@@ -30,7 +31,7 @@ const AllCourses = () => {
       </div>
     </div>
   )
-  if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
+  if (isError) return <ErrorCard message={error.message} />;
 
   return (
     <div>
