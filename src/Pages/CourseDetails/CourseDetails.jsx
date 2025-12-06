@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router";
 import EnrollCourse from "../EnrollCourse/EnrollCourse";
 import { AuthContext } from "../../Context/AuthContext";
+import Loader from "../../components/Loader";
 
 
 const fetchSingleCourseData = async (id) => {
@@ -26,7 +27,14 @@ const CourseDetails = () => {
         
     });
 
-    if (isLoading) return <p className="text-center mt-5">Loading...</p>;
+    if (isLoading)
+      return (
+        <div className="flex justify-center items-center h-screen">
+          <div className="scale-130">
+            <Loader />
+          </div>
+        </div>
+      );
     if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
   
 

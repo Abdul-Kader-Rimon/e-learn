@@ -2,6 +2,7 @@ import React from 'react';
 import MyEnrolledCourseCard from './MyEnrolledCourseCard';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Loader from '../../components/Loader';
 
 const MyEnrollCourses = () => {
      const {
@@ -19,7 +20,14 @@ const MyEnrollCourses = () => {
        },
      });
 
-     if (isLoading) return <p className="text-center mt-5">Loading...</p>;
+     if (isLoading)
+       return (
+         <div className="flex justify-center items-center h-screen">
+           <div className="scale-130">
+             <Loader />
+           </div>
+         </div>
+       );
      if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
     return (
       <div>

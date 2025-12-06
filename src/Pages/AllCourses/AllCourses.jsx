@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useState } from "react";
 import CourseCard from "./CourseCard";
+import Loader from "../../components/Loader";
 
 const fetchCourses = async (category) => {
   const { data } = await axios.get("http://localhost:3000/courses" , {params : {category : category || ""}});
@@ -22,7 +23,13 @@ const AllCourses = () => {
     queryFn: ()=>fetchCourses(selectedCategory),
   });
 
-  if (isLoading) return <p className="text-center mt-5">Loading...</p>;
+  if (isLoading) return (
+    <div className="flex justify-center items-center h-screen">
+      <div className="scale-130">
+        <Loader />
+      </div>
+    </div>
+  )
   if (isError) return <p className="text-center mt-5"> Error : {error.message}</p>;
 
   return (
