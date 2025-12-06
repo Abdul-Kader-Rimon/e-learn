@@ -11,6 +11,7 @@ import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import MyCourses from "../Pages/MyCourses/MyCourses";
 import UpdateCourse from "../Pages/UpdateCourse/UpdateCourse";
 import MyEnrollCourses from "../Pages/MyEnrollCourses/MyEnrollCourses";
+import Error from "../components/Error";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: "/auth/forgetpassword",
         element: <ForgetPassword />,
+      },
+      {
+        path: "*",
+        element: <Error/>,
       },
     ],
   },
