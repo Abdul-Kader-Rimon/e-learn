@@ -54,43 +54,47 @@ const CourseDetails = () => {
           <div className="mt-7 border rounded-xl p-5">
             <h2 className="text-2xl font-bold mb-3">Course Information</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-3 border rounded-lg">
-                <div className="font-bold text-slate-500">Title</div>
-                <div className="font-semibold">{course.title}</div>
+              <div className="p-3 border rounded-lg bg-orange-50">
+                <div className="font-bold text-black text-xl ">Title : </div>
+                <div className="font-semibold text-lg text-indigo-600">{course.title}</div>
               </div>
 
-              <div className="p-3 border rounded-lg">
-                <div className="font-bold text-slate-500">Category</div>
-                <div className="font-semibold">{course.category}</div>
+              <div className="p-3 border rounded-lg bg-purple-100">
+                <div className="font-bold text-black text-xl">Category : </div>
+                <div className="font-semibold text-lg text-purple-500">
+                  {course.category}
+                </div>
               </div>
 
-              <div className="p-3 border rounded-lg">
-                <div className="font-bold text-slate-500">Duration</div>
-                <div className="font-semibold">{course.duration} hours</div>
+              <div className="p-3 border rounded-lg bg-blue-50">
+                <div className="font-bold text-xl text-black">Duration : </div>
+                <div className="font-semibold text-lg text-blue-500">
+                  {course.duration} hours
+                </div>
               </div>
 
-              <div className="p-3 border rounded-lg">
-                <div className="font-bold text-slate-500">Price</div>
-                <div className="font-semibold">${course.price}</div>
+              <div className="p-3 border rounded-lg bg-green-50">
+                <div className="font-bold text-xl text-black ">Price : </div>
+                <div className="font-semibold text-lg text-green-500">
+                  ${course.price}
+                </div>
               </div>
             </div>
 
-            <div className="my-3 text-slate-600">
+            <div className="my-3  ">
               {" "}
-              <span className="font-bold">Discription: </span>
+              <span className="font-bold text-xl">Discription: </span>
               {course.description}
             </div>
           </div>
 
-          {/* <button className="button my-5 py-2 px-10">Enroll Now</button> */}
-          {/* You can open the modal using document.getElementById('ID').showModal() method */}
           <button
             className="button my-5 py-2 px-10"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             Enroll Now
           </button>
-          <EnrollCourse    user={user} course={course} />
+          <EnrollCourse user={user} course={course} />
         </div>
       </div>
     </div>

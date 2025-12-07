@@ -9,20 +9,18 @@ const Footer = () => {
       <footer className=" footer w-full sm:footer-horizontal flex justify-around items-center gap-10   texcent p-10 mt-10">
         <aside>
           <Link to={"/"}>
-             
-              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 via-purple-500 to-purple-700">
-                 E-Learn
-              </h2>
-            
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br to-purple-600 via-blue-500 from-blue-600 italic">
+              E-Learn
+            </h2>
           </Link>
-          <p className="font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 via-purple-500 to-purple-700">
+          <p className="font-semibold text-transparent bg-clip-text bg-gradient-to-br to-purple-600 via-blue-500 from-blue-600">
             E-Learn Industries Ltd.
             <br />
             Copyright © 2025 - All right reserved by E-Learn Ltd
           </p>
         </aside>
         <nav>
-          <h4 className="footer-title font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 via-purple-500 to-purple-700">
+          <h4 className="footer-title font-bold text-transparent bg-clip-text bg-gradient-to-br to-purple-600 via-blue-500 from-blue-600">
             Social
           </h4>
           <div className="grid grid-flow-row md:grid-flow-col gap-4">

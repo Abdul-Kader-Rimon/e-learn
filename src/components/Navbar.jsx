@@ -1,26 +1,24 @@
- import React, { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router';
-import { AuthContext } from '../Context/AuthContext';
-import { IoLogIn, IoLogOut } from 'react-icons/io5';
-import { FaRegIdBadge, FaUser } from 'react-icons/fa';
- 
+import React, { useContext, useEffect, useState } from "react";
+import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
+import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { FaRegIdBadge, FaUser } from "react-icons/fa";
+
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const [isChecked, setIsChecked] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
 
-
   const handleThemeChange = () => {
-    setIsChecked(prev => !prev);
+    setIsChecked((prev) => !prev);
   };
 
   useEffect(() => {
     const theme = isChecked ? "dark" : "light";
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme" , theme)
-  },[isChecked])
-
+    localStorage.setItem("theme", theme);
+  }, [isChecked]);
 
   return (
     <div>
@@ -70,7 +68,11 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl font-bold">E-Learn</a>
+          <Link to={"/"}>
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br to-purple-600 via-blue-500 from-blue-600 italic">
+              E-Learn
+            </h2>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -207,14 +209,14 @@ const Navbar = () => {
             <div className="flex gap-2">
               <Link
                 to={"/auth/login"}
-                className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
+                className="btn  button rounded-full border-gray-300 text-purple-700 "
               >
                 {" "}
                 <IoLogIn /> Login
               </Link>
               <Link
                 to={"/auth/register"}
-                className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
+                className="btn  button rounded-full border-gray-300 text-purple-700 "
               >
                 {" "}
                 <FaRegIdBadge /> Ragistation
@@ -225,6 +227,6 @@ const Navbar = () => {
       </div>
     </div>
   );
- };
- 
- export default Navbar;
+};
+
+export default Navbar;

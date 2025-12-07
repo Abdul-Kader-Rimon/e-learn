@@ -105,7 +105,7 @@ const Register = () => {
                           </span>
                         </div>
             
-            <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600">
+            <button className="btn button   mt-4 rounded-full ">
               Register
             </button>
           </fieldset>
@@ -113,7 +113,7 @@ const Register = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className="btn bg-white rounded-full text-black border-[#e5e5e5]"
+          className="btn button bg-white rounded-full text-black border-[#e5e5e5]"
         >
           <FaGoogle />
           Login with Google
