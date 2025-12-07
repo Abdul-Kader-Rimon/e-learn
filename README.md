@@ -1,16 +1,54 @@
-# React + Vite
+ # E-Learn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Link:** [https://e-learn-akr.netlify.app/] 
 
-Currently, two official plugins are available:
+## Purpose
+E-Learn is a full-stack online learning platform designed to connect instructors and learners seamlessly. Users can explore, enroll, and manage courses while instructors can create and manage their own courses. The platform emphasizes smooth interaction, modern UI, responsive design, and efficient data management to provide an immersive learning experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## React Compiler
+- **Dynamic Navbar:**  
+  - Shows **Login/Register** links when the user is logged out.  
+  - Displays **user profile picture** and logout button when logged in.  
+  - Dashboard links dynamically update according to the logged-in user.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Home Page:**  
+  - Hero/Banner section with engaging visuals.  
+  - Popular Courses section with 6 featured courses.  
+  - Static sections: “Why Choose Us” and “Top Instructors.”  
+  - Smooth animations implemented using **Framer Motion**.
 
-## Expanding the ESLint configuration
+- **Authentication:**  
+  - Email/password login and registration.  
+  - Google login integration.  
+  - Password validation (minimum 6 characters, includes uppercase & lowercase letters).  
+  - Users are redirected appropriately to private routes after login.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Course Management (CRUD):**  
+  - Instructors can **Add, View, Update, and Delete** their courses.  
+  - Users can **enroll** in courses and see their enrolled courses.  
+  - Course data stored in **MongoDB** and images handled via **ImgBB**.  
+  - Filtering functionality available on “All Courses” page.
+
+- **Additional Features:**  
+  - Loading spinners while fetching data.  
+  - Custom **404 Not Found** page.  
+  - Dynamic page titles and toast notifications.  
+  - Fully responsive design with **Tailwind CSS** and **DaisyUI**.  
+  - Dark/Light theme toggle functionality.
+
+## Dependencies
+- `react`  
+- `react-router`  
+- `react-icons`  
+- `lucide-react`  
+- `react-hot-toast`  
+- `framer-motion`  
+- `axios`  
+- `firebase`  
+- `tailwindcss`  
+- `daisyui`  
+- `@tanstack/react-query`  
+- `MongoDB`  
+- `Vercel`  
+- `netlify`  
