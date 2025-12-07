@@ -1,5 +1,5 @@
  import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import { useQuery } from '@tanstack/react-query';
 import MyCoursesCard from './MyCoursesCard';
@@ -14,7 +14,9 @@ const fetchMyCourses = async (email) => {
 
 const MyCourses = () => {
   const { user } = useContext(AuthContext);
-
+    useEffect(() => {
+    document.title = "My Courses | E-Learn"
+  },[])
   const {
     data: courses = [],
     isLoading,

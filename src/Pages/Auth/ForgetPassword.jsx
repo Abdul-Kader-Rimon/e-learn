@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
  
  
@@ -10,6 +10,10 @@ const ForgetPassword = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { sendPassResetEmailFunc } = useContext(AuthContext);
+    useEffect(() => {
+      document.title = "Forget Password | E-Learn"
+    },[])
+
 
   const passedEmail = location.state?.email || "";
   const [email, setEmail] = useState(passedEmail);

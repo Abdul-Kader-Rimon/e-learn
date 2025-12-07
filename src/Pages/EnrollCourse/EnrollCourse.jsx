@@ -1,10 +1,14 @@
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import toast from "react-hot-toast";
 
 const EnrollCourse = ({ user, course }) => {
-    
+  
+    useEffect(() => {
+      document.title = "Enroll Course | E-Learn"
+    },[])
+
     const enrollMutation = useMutation({
         mutationFn: async (enrollmentData) => {
             const { data } = await axios.post("http://localhost:3000/enrolled-courses", enrollmentData)

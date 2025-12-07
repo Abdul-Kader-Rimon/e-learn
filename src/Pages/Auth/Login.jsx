@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router";
 
 import { FaEye, FaGoogle } from "react-icons/fa";
@@ -8,8 +8,11 @@ import { IoEyeOff } from "react-icons/io5";
 import toast from "react-hot-toast";
 
 const Login = () => {
-     const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    useEffect(() => {
+      document.title = "Login | E-Learn"
+    },[])
 
   const location = useLocation();
   const navigate = useNavigate();

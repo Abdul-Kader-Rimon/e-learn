@@ -1,9 +1,12 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 
 const Error = () => {
   const navigate = useNavigate();
+      useEffect(() => {
+      document.title = "Error | E-Learn"
+    },[])
 
   return (
     <div className=" mt-20 flex items-center justify-center bg-base-100 text-base-content  px-6">

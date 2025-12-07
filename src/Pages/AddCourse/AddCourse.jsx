@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthContext';
 import { useNavigate } from 'react-router';
@@ -9,6 +9,9 @@ const AddCourse = () => {
   const {user} = useContext(AuthContext)
   const queryClient = useQueryClient();
   const navigation = useNavigate()
+    useEffect(() => {
+      document.title = "Add Courses | E-Learn"
+    },[])
 
 
   const { mutate } = useMutation({
@@ -52,114 +55,113 @@ const AddCourse = () => {
         form.reset();
 
     }
-     return (
-       <div className="card bg-base-100 w-full max-w-lg mx-auto mt-12 shadow-2xl border border-gray-200">
-         <div className="card-body">
-           <h1 className="text-3xl font-bold text-center">Add New Course</h1>
+  return (
+    <div className="card bg-base-100 w-full max-w-lg mx-auto mt-12 shadow-2xl border border-gray-200">
+ 
+      <div className="card-body">
+        <h1 className="text-3xl font-bold text-center">Add New Course</h1>
 
-           <form onSubmit={handleAddCourse}>
-             <fieldset className="fieldset space-y-3">
-               <div className="flex flex-col gap-2">
-                 <label className="label">Course Title</label>
-                 <input
-                   type="text"
-                   name="title"
-                   className="input w-full rounded-full focus:outline-gray-300"
-                   placeholder="Course Title"
-                   required
-                 />
-               </div>
+        <form onSubmit={handleAddCourse}>
+          <fieldset className="fieldset space-y-3">
+            <div className="flex flex-col gap-2">
+              <label className="label">Course Title</label>
+              <input
+                type="text"
+                name="title"
+                className="input w-full rounded-full focus:outline-gray-300"
+                placeholder="Course Title"
+                required
+              />
+            </div>
 
-               <div className="flex flex-col gap-2">
-                 <label className="label">Image URL</label>
-                 <input
-                   type="text"
-                   name="image"
-                   className="input w-full rounded-full focus:outline-gray-300"
-                   placeholder="Image URL"
-                   required
-                 />
-               </div>
+            <div className="flex flex-col gap-2">
+              <label className="label">Image URL</label>
+              <input
+                type="text"
+                name="image"
+                className="input w-full rounded-full focus:outline-gray-300"
+                placeholder="Image URL"
+                required
+              />
+            </div>
 
-               <div className="flex flex-col gap-2">
-                 <label className="label">Price (USD)</label>
-                 <input
-                   type="text"
-                   name="price"
-                   className="input w-full rounded-full focus:outline-gray-300"
-                   placeholder="Course Price"
-                   required
-                 />
-               </div>
+            <div className="flex flex-col gap-2">
+              <label className="label">Price (USD)</label>
+              <input
+                type="text"
+                name="price"
+                className="input w-full rounded-full focus:outline-gray-300"
+                placeholder="Course Price"
+                required
+              />
+            </div>
 
-               <div className="flex flex-col gap-2">
-                 <label className="label">Duration</label>
-                 <input
-                   type="text"
-                   name="duration"
-                   className="input w-full rounded-full focus:outline-gray-300"
-                   placeholder="Course Duration"
-                   required
-                 />
-               </div>
+            <div className="flex flex-col gap-2">
+              <label className="label">Duration</label>
+              <input
+                type="text"
+                name="duration"
+                className="input w-full rounded-full focus:outline-gray-300"
+                placeholder="Course Duration"
+                required
+              />
+            </div>
 
-               <div className="flex flex-col gap-2">
-                 {" "}
-                 <label className="label">Category</label>{" "}
-                 <select
-                   name="category"
-                   className="select w-full rounded-full focus:outline-gray-300"
-                   required
-                 >
-                   {" "}
-                   <option value="">Select Category</option>{" "}
-                   <option value="Web Development">Web Development</option>{" "}
-                   <option value="Full Stack">Full Stack</option>{" "}
-                   <option value="Design">Design</option>{" "}
-                   <option value="Frontend">Frontend</option>{" "}
-                   <option value="Programming">Programming</option>{" "}
-                   <option value="Marketing">Marketing</option>{" "}
-                   <option value="Backend">Backend</option>{" "}
-                   <option value="Data Analysis">Data Analysis</option>{" "}
-                   <option value="Mobile Development">
-                     Mobile Development
-                   </option>{" "}
-                   <option value="Artificial Intelligence">
-                     {" "}
-                     Artificial Intelligence{" "}
-                   </option>{" "}
-                 </select>{" "}
-               </div>
+            <div className="flex flex-col gap-2">
+              {" "}
+              <label className="label">Category</label>{" "}
+              <select
+                name="category"
+                className="select w-full rounded-full focus:outline-gray-300"
+                required
+              >
+                {" "}
+                <option value="">Select Category</option>{" "}
+                <option value="Web Development">Web Development</option>{" "}
+                <option value="Full Stack">Full Stack</option>{" "}
+                <option value="Design">Design</option>{" "}
+                <option value="Frontend">Frontend</option>{" "}
+                <option value="Programming">Programming</option>{" "}
+                <option value="Marketing">Marketing</option>{" "}
+                <option value="Backend">Backend</option>{" "}
+                <option value="Data Analysis">Data Analysis</option>{" "}
+                <option value="Mobile Development">Mobile Development</option>{" "}
+                <option value="Artificial Intelligence">
+                  {" "}
+                  Artificial Intelligence{" "}
+                </option>{" "}
+              </select>{" "}
+            </div>
 
-               <div className="flex flex-col gap-2">
-                 <label className="label">Description</label>
-                 <textarea
-                   name="description"
-                   className="textarea w-full rounded-xl focus:outline-gray-300"
-                   placeholder="Course Description"
-                   required
-                 ></textarea>
-               </div>
-               <div className="flex flex-col gap-2">
-                 <label className="label">Email</label>
-                 <input
-                   value={user?.email}
-                   type="email"
-                   name="email"
-                   className="input w-full rounded-full focus:outline-gray-300"
-                    readOnly
-                   required
-                 />
-               </div>
+            <div className="flex flex-col gap-2">
+              <label className="label">Description</label>
+              <textarea
+                name="description"
+                className="textarea w-full rounded-xl focus:outline-gray-300"
+                placeholder="Course Description"
+                required
+              ></textarea>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="label">Email</label>
+              <input
+                value={user?.email}
+                type="email"
+                name="email"
+                className="input w-full rounded-full focus:outline-gray-300"
+                readOnly
+                required
+              />
+            </div>
 
-               <button className="btn button text-black mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full">
-                 Add Course
-               </button>
-             </fieldset>
-           </form>
-         </div>
-       </div>
-     );
+            <button className="btn button text-black mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full">
+              Add Course
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 

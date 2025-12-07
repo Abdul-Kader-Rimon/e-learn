@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 
 import { FaGoogle } from "react-icons/fa6";
@@ -9,9 +9,13 @@ import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
      const [show, setShow] = useState(false);
-  const { createUser, updateUserProfile, signInWithGoogle } =
+    const { createUser, updateUserProfile, signInWithGoogle } =
     useContext(AuthContext);
   const navigate = useNavigate();
+
+    useEffect(() => {
+      document.title = "Register | E-Learn"
+    },[])
 
   const handleRegister = (event) => {
     event.preventDefault();

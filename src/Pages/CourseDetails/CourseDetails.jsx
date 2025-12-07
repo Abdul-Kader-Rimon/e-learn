@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import EnrollCourse from "../EnrollCourse/EnrollCourse";
 import { AuthContext } from "../../Context/AuthContext";
@@ -17,6 +17,9 @@ const fetchSingleCourseData = async (id) => {
 const CourseDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
+    useEffect(() => {
+      document.title = "Course Details | E-Learn"
+    },[])
     const {
         data: course,
         isLoading,

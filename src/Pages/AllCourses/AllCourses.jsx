@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
@@ -12,8 +12,10 @@ const fetchCourses = async (category) => {
 
 const AllCourses = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
-
-
+  
+  useEffect(() => {
+    document.title = "All Courses | E-Learn"
+  },[])
   const {
     data: courses ,
     isLoading,

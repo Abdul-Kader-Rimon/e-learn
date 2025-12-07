@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
@@ -16,7 +16,11 @@ const UpdateCourse = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams();
     const queryClient = useQueryClient();
-    const navigation = useNavigate()
+  const navigation = useNavigate()
+  
+      useEffect(() => {
+      document.title = "Update Course | E-Learn"
+    },[])
 
     const {
         data: course,

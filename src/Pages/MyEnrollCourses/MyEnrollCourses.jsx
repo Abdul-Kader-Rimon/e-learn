@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MyEnrolledCourseCard from './MyEnrolledCourseCard';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -6,6 +6,10 @@ import Loader from '../../components/Loader';
 import ErrorCard from '../../components/ErrorCard';
 
 const MyEnrollCourses = () => {
+      useEffect(() => {
+      document.title = "My Enrolled Courses | E-Learn"
+      }, [])
+  
      const {
        data: courses,
        isLoading,
