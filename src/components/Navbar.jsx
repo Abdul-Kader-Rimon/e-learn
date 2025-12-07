@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
-import { FaRegIdBadge, FaUser } from "react-icons/fa";
+import { FaRegIdBadge, FaRegUserCircle, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const [isChecked, setIsChecked] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
+
+  const [authOpen , setAuthOpen] = useState(false)
 
   const handleThemeChange = () => {
     setIsChecked((prev) => !prev);
@@ -109,14 +111,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        {/* <div className="navbar-end flex gap-2">
-          <NavLink to={"/auth/login"} className="btn">
-            Login
-          </NavLink>
-          <NavLink to={"/auth/register"} className="btn">
-            Ragistation
-          </NavLink>
-        </div> */}
 
         <div className="navbar-end gap-3">
           <label className="flex cursor-pointer gap-2">
@@ -204,22 +198,51 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <div className="flex gap-2">
-              <Link
-                to={"/auth/login"}
-                className="btn  button rounded-full border-gray-300 text-purple-700 "
-              >
-                {" "}
-                <IoLogIn /> Login
-              </Link>
-              <Link
-                to={"/auth/register"}
-                className="btn  button rounded-full border-gray-300 text-purple-700 "
-              >
-                {" "}
-                <FaRegIdBadge /> Ragistation
-              </Link>
-            </div>
+            <>
+              <div className="hidden md:flex gap-2">
+                <Link
+                  to={"/auth/login"}
+                  className="btn  button rounded-full border-gray-300 text-purple-700 "
+                >
+                  {" "}
+                  <IoLogIn /> Login
+                </Link>
+                <Link
+                  to={"/auth/register"}
+                  className="btn  button rounded-full border-gray-300 text-purple-700 "
+                >
+                  {" "}
+                  <FaRegIdBadge /> Ragistation
+                </Link>
+              </div>
+
+              <div className="md:hidden relative">
+                <button
+                  onClick={() => setAuthOpen(!authOpen)}
+                  className="btn btn-ghost btn-circle text-2xl"
+                >
+                  <FaRegUserCircle />
+                </button>
+                {authOpen && (
+                  <div className="absolute space-y-2 right-0 mt-2 w-40 bg-base-100 shadow-lg rounded-lg p-2 z-50">
+                    <Link
+                      to="/auth/login"
+                      className="button text-black  flex items-center gap-2 py-2 px-3 rounded hover:bg-purple-100"
+                      onClick={() => setAuthOpen(false)}
+                    >
+                      <IoLogIn /> Login
+                    </Link>
+                    <Link
+                      to="/auth/register"
+                      className="button text-black flex items-center gap-2 py-2 px-3 rounded hover:bg-purple-100"
+                      onClick={() => setAuthOpen(false)}
+                    >
+                      <FaRegIdBadge /> Register
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </>
           )}
         </div>
       </div>
