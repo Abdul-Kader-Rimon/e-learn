@@ -13,6 +13,7 @@ import UpdateCourse from "../Pages/UpdateCourse/UpdateCourse";
 import MyEnrollCourses from "../Pages/MyEnrollCourses/MyEnrollCourses";
 import Error from "../components/Error";
 import MyProfile from "../components/MyProfile";
+import PublicRoute from "./PublicRoute";
  
 
 export const router = createBrowserRouter([
@@ -67,13 +68,19 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+ 
       {
         path: "/auth/login",
-        element: <Login />,
+        element: <PublicRoute>
+          <Login />
+        </PublicRoute> ,
       },
+ 
       {
         path: "/auth/register",
-        element: <Register />,
+        element: <PublicRoute>
+          <Register />
+        </PublicRoute> ,
       },
       {
         path: "/auth/forgetpassword",
