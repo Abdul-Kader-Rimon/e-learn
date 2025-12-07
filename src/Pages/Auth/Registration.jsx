@@ -36,13 +36,13 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         updateUserProfile(displayName, photoURL);
         toast.success("User created successfully!", { id: "create-user" });
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         toast.error(error.message, { id: "create-user" });
       });
   };
@@ -52,11 +52,11 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         toast.success("User created successfully!", { id: "create-user" });
-        console.log(result.user);
+        // console.log(result.user);
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         toast.error(error.message, { id: "create-user" });
       });
   };
@@ -67,7 +67,7 @@ const Register = () => {
         <h1 className="text-3xl font-bold text-center">Register</h1>
         <form onSubmit={handleRegister}>
           <fieldset className="fieldset">
-            {/* email field */}
+       
             <label className="label">Name</label>
             <input
               type="text"
@@ -83,7 +83,7 @@ const Register = () => {
               className="input rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Photo URL"
             />
-            {/* email field */}
+        
             <label className="label">Email</label>
             <input
               type="email"
@@ -91,7 +91,7 @@ const Register = () => {
               className="input rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Email"
             />
-            {/* password field */}
+   
             <div className="relative">
               <label className="label">Password</label>
               <input

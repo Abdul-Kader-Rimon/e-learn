@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import ErrorCard from "./ErrorCard";
@@ -7,6 +7,9 @@ import ErrorCard from "./ErrorCard";
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+      useEffect(() => {
+      document.title = "My Profile | E-Learn"
+    },[])
  
   return (
     <div className="flex justify-center mt-10 px-4 py-4">

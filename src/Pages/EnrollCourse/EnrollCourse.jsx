@@ -44,7 +44,7 @@ const EnrollCourse = ({ user, course }) => {
            enrolledAt: new Date()
         };
 
-        console.log(enrollmentData)
+        // console.log(enrollmentData)
         enrollMutation.mutate(enrollmentData)
     }
 
