@@ -3,8 +3,9 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router";
 
 import { FaEye, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthContext";
-import toast from "react-hot-toast";
+ 
 import { IoEyeOff } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 const Login = () => {
      const [show, setShow] = useState(false);
@@ -33,7 +34,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         event.target.reset();
-        toast.success("User created successfully!", { id: "create-user" });
+        toast.success(" Login successfully!", { id: "create-user" });
         navigate(location.state || "/");
       })
       .catch((error) => {
@@ -46,7 +47,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
-        toast.success("User created successfully!", { id: "create-user" });
+        toast.success(" Login successfully!", { id: "create-user" });
         navigate(location?.state || "/");
       })
       .catch((error) => {

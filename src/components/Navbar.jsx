@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar   ">
         <div className="navbar-start">
           <div className="dropdown z-10">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,7 +44,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="text-lg menu font-semibold menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <NavLink to={"/"}>Home</NavLink>
@@ -75,7 +75,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 font-semibold text-lg">
             <li>
               <NavLink to={"/"}>Home</NavLink>
             </li>
@@ -181,10 +181,16 @@ const Navbar = () => {
                   <li className="text-sm font-bold">{user.displayName}</li>
                   <li className="text-xs">{user.email}</li>
                 </div>
-                <li className="my-3">
+                <li className="my-1">
                   <Link to={"/my-profile"}>
                     <FaUser /> Profile
                   </Link>
+                </li>
+                <li className="my-1">
+                  <Link to={"/my-courses"}>My Courses</Link>
+                </li>
+                <li className="my-1">
+                  <Link to={"/my-enrolledCourses"}>My Enrolled Courses</Link>
                 </li>
 
                 <li>

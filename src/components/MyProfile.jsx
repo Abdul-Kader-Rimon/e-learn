@@ -26,10 +26,10 @@ const MyProfile = () => {
 
           <div className="mt-4">
             <button
-              onClick={() => navigate("")}
+              onClick={() => navigate("/")}
               className="button text-black w-full py-2 px-8"
             >
-              update
+              Go Back Home 
             </button>
           </div>
         </div>

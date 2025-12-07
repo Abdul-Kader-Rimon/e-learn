@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
  
-import { toast } from "react-toastify";
+ 
 import { AuthContext } from "../../Context/AuthContext";
+import toast from "react-hot-toast";
  
 
 const ForgetPassword = () => {
@@ -52,7 +53,7 @@ const ForgetPassword = () => {
             </button>
           </form>
           <button
-            onClick={() => navigate("/signin")}
+            onClick={() => navigate("/auth/login")}
             className="button w-full py-2 text-black"
           >
             Back To Login
