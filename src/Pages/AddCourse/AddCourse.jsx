@@ -1,63 +1,62 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
-import React, { useContext, useEffect } from 'react';
-import toast from 'react-hot-toast';
-import { AuthContext } from '../../Context/AuthContext';
-import { useNavigate } from 'react-router';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
+import React, { useContext, useEffect } from "react";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../Context/AuthContext";
+import { useNavigate } from "react-router";
 
 const AddCourse = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const queryClient = useQueryClient();
-  const navigation = useNavigate()
-    useEffect(() => {
-      document.title = "Add Courses | E-Learn"
-    },[])
-
+  const navigation = useNavigate();
+  useEffect(() => {
+    document.title = "Add Courses | E-Learn";
+  }, []);
 
   const { mutate } = useMutation({
     mutationFn: async (newCourse) => {
-      const { data } = await axios.post("http://localhost:3000/courses", newCourse);
+      const { data } = await axios.post(
+        " https://e-learn-zeta.vercel.app/courses",
+        newCourse
+      );
       return data;
-    }, 
+    },
     onSuccess: () => {
       toast.success("Course Added Successfully!");
       queryClient.invalidateQueries(["courses"]);
-
     },
     onError: () => {
-      toast.error("Failed to add course!")
+      toast.error("Failed to add course!");
     },
-  })
-    const handleAddCourse = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const title = form.title.value;
-        const image = form.image.value;
-        const duration = parseInt(form.duration.value);
-        const price = parseInt(form.price.value);
-        const category = form.category.value;
-        const description = form.description.value;
-        const  email = form.email.value;
+  });
+  const handleAddCourse = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const title = form.title.value;
+    const image = form.image.value;
+    const duration = parseInt(form.duration.value);
+    const price = parseInt(form.price.value);
+    const category = form.category.value;
+    const description = form.description.value;
+    const email = form.email.value;
 
-        const newCourse = {
-          title,
-          image,
-          duration,
-          price,
-          category,
-          description,
-          email
-        };
+    const newCourse = {
+      title,
+      image,
+      duration,
+      price,
+      category,
+      description,
+      email,
+    };
 
-      // console.log(newCourse)
-      mutate(newCourse)
-      navigation("/my-courses");
-        form.reset();
-
-    }
+    // console.log(newCourse)
+    mutate(newCourse);
+    navigation("/my-courses");
+    form.reset();
+  };
   return (
     <div className="card bg-base-100 w-full max-w-lg mx-auto mt-12 shadow-2xl border border-gray-200">
- 
       <div className="card-body">
         <h1 className="text-3xl font-bold text-center">Add New Course</h1>
 
@@ -163,6 +162,5 @@ const AddCourse = () => {
     </div>
   );
 };
-
 
 export default AddCourse;

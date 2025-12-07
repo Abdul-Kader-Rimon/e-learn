@@ -1,22 +1,23 @@
- import axios from 'axios';
-import React, { useContext, useEffect } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
-import { useQuery } from '@tanstack/react-query';
-import MyCoursesCard from './MyCoursesCard';
-import Loader from '../../components/Loader';
-import ErrorCard from '../../components/ErrorCard';
- 
+import axios from "axios";
+import React, { useContext, useEffect } from "react";
+import { AuthContext } from "../../Context/AuthContext";
+import { useQuery } from "@tanstack/react-query";
+import MyCoursesCard from "./MyCoursesCard";
+import Loader from "../../components/Loader";
+import ErrorCard from "../../components/ErrorCard";
+
 const fetchMyCourses = async (email) => {
-  const { data } = await axios.get(`http://localhost:3000/my-courses?email=${email}`);
+  const { data } = await axios.get(
+    ` https://e-learn-zeta.vercel.app/my-courses?email=${email}`
+  );
   return data;
 };
 
-
 const MyCourses = () => {
   const { user } = useContext(AuthContext);
-    useEffect(() => {
-    document.title = "My Courses | E-Learn"
-  },[])
+  useEffect(() => {
+    document.title = "My Courses | E-Learn";
+  }, []);
   const {
     data: courses = [],
     isLoading,
@@ -24,19 +25,19 @@ const MyCourses = () => {
     error,
   } = useQuery({
     queryKey: ["my-courses", user?.email],
-    queryFn: () => fetchMyCourses(user?.email)
+    queryFn: () => fetchMyCourses(user?.email),
   });
 
-if (isLoading)
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="scale-130">
-        <Loader />
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="scale-130">
+          <Loader />
+        </div>
       </div>
-    </div>
-  );
- if (isError) return <ErrorCard message={error.message} />;
-  
+    );
+  if (isError) return <ErrorCard message={error.message} />;
+
   return (
     <div>
       <h1 className="text-3xl font-bold my-10 text-center">My Added Courses</h1>
@@ -55,6 +56,6 @@ if (isLoading)
       </div>
     </div>
   );
- };
- 
- export default MyCourses;
+};
+
+export default MyCourses;

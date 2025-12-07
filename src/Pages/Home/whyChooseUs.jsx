@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
                 className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
               >
                 <CheckCircle className="w-10 h-10 mx-auto text-green-500 mb-4" />
-                <h3 className="text-xl dark:text-black font-semibold">
+                <h3 className="text-xl text-black font-semibold">
                   {feature}
                 </h3>
               </div>
@@ -72,7 +72,7 @@ const WhyChooseUs = () => {
                 className="p-6 bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
               >
                 <CheckCircle className="w-10 h-10 mx-auto text-green-500 mb-4" />
-                <h3 className="text-xl dark:text-black font-semibold">
+                <h3 className="text-xl text-black font-semibold">
                   {feature}
                 </h3>
               </div>

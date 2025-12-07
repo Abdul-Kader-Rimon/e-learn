@@ -7,43 +7,41 @@ import { AuthContext } from "../../Context/AuthContext";
 import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
 
-
 const fetchSingleCourseData = async (id) => {
-    const { data } = await axios.get(`http://localhost:3000/courses/${id}`);
-    return data;
+  const { data } = await axios.get(
+    ` https://e-learn-zeta.vercel.app/courses/${id}`
+  );
+  return data;
 };
-
 
 const CourseDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
-    useEffect(() => {
-      document.title = "Course Details | E-Learn"
-    },[])
-    const {
-        data: course,
-        isLoading,
-        isError,
-        error,
-    } = useQuery({
-        queryKey: ["course", id],
-        queryFn: () => fetchSingleCourseData(id),
-        
-    });
+  useEffect(() => {
+    document.title = "Course Details | E-Learn";
+  }, []);
+  const {
+    data: course,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["course", id],
+    queryFn: () => fetchSingleCourseData(id),
+  });
 
-    if (isLoading)
-      return (
-        <div className="flex justify-center items-center h-screen">
-          <div className="scale-130">
-            <Loader />
-          </div>
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="scale-130">
+          <Loader />
         </div>
-      );
-    if (isError) return <ErrorCard message={error.message} />;
-  
+      </div>
+    );
+  if (isError) return <ErrorCard message={error.message} />;
 
   return (
-    <div className="max-w-4xl mx-auto p-6  dark:text-black">
+    <div className="max-w-4xl mx-auto p-6  text-black">
       <div className="rounded-2xl overflow-hidden shadow-xl bg-white ">
         <img
           src={course.image}
@@ -59,7 +57,9 @@ const CourseDetails = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-3 border rounded-lg bg-orange-50">
                 <div className="font-bold text-black text-xl ">Title : </div>
-                <div className="font-semibold text-lg text-indigo-600">{course.title}</div>
+                <div className="font-semibold text-lg text-indigo-600">
+                  {course.title}
+                </div>
               </div>
 
               <div className="p-3 border rounded-lg bg-purple-100">

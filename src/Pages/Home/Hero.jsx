@@ -29,7 +29,7 @@ import img from "../../assets/e-learn-banner.webp";
               anywhere.
             </p>
             <Link to={"/all-courses"}>
-              <button className="button px-6 py-3 dark:text-black">Get Started</button>
+              <button className="button px-6 py-3 text-black">Get Started</button>
             </Link>
           </motion.div>
         </div>

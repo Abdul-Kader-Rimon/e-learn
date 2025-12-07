@@ -10,7 +10,7 @@ const MyEnrolledCourseCard = ({ course }) => {
 
    
     return (
-      <div className="border p-5 rounded-xl simple-card">
+      <div className="border p-5 rounded-xl text-black simple-card">
         <img
           src={image}
           alt={title}

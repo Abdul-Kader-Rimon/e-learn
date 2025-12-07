@@ -71,7 +71,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to={"/"}>
-            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br to-purple-600 via-blue-500 from-blue-600 italic">
+            <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br to-purple-600 via-blue-500 from-blue-600 italic">
               E-Learn
             </h2>
           </Link>

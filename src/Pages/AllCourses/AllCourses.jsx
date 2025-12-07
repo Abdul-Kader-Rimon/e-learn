@@ -6,33 +6,36 @@ import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
 
 const fetchCourses = async (category) => {
-  const { data } = await axios.get("http://localhost:3000/courses" , {params : {category : category || ""}});
+  const { data } = await axios.get(" https://e-learn-zeta.vercel.app/courses", {
+    params: { category: category || "" },
+  });
   return data;
 };
 
 const AllCourses = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
-  
+
   useEffect(() => {
-    document.title = "All Courses | E-Learn"
-  },[])
+    document.title = "All Courses | E-Learn";
+  }, []);
   const {
-    data: courses ,
+    data: courses,
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ["courses" , selectedCategory],
-    queryFn: ()=>fetchCourses(selectedCategory),
+    queryKey: ["courses", selectedCategory],
+    queryFn: () => fetchCourses(selectedCategory),
   });
 
-  if (isLoading) return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="scale-130">
-        <Loader />
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="scale-130">
+          <Loader />
+        </div>
       </div>
-    </div>
-  )
+    );
   if (isError) return <ErrorCard message={error.message} />;
 
   return (
@@ -68,8 +71,8 @@ const AllCourses = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6 gap-5">
-        { courses.length > 0 ? (
-           courses.map((courses, index) => (
+        {courses.length > 0 ? (
+          courses.map((courses, index) => (
             <CourseCard
               key={index}
               _id={courses._id}

@@ -15,7 +15,9 @@ const PopularCourses = () => {
   } = useQuery({
     queryKey: ["popular-courses"],
     queryFn: async () => {
-      const { data } = await axios.get("http://localhost:3000/popular-courses");
+      const { data } = await axios.get(
+        " https://e-learn-zeta.vercel.app/popular-courses"
+      );
       return data;
     },
   });
@@ -30,11 +32,11 @@ const PopularCourses = () => {
     );
   if (isError) return <ErrorCard message={error.message} />;
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl   mx-auto px-4 py-10">
       <h2 className="text-4xl md:text-6xl font-bold mb-8 text-center">
         Popular Courses
       </h2>
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex text-black flex-wrap justify-center gap-6 px-4">
         {courses.map((course, index) => (
           <motion.div
             key={course._id}

@@ -4,49 +4,47 @@ import React, { useEffect } from "react";
 import toast from "react-hot-toast";
 
 const EnrollCourse = ({ user, course }) => {
-  
-    useEffect(() => {
-      document.title = "Enroll Course | E-Learn"
-    },[])
+  useEffect(() => {
+    document.title = "Enroll Course | E-Learn";
+  }, []);
 
-    const enrollMutation = useMutation({
-        mutationFn: async (enrollmentData) => {
-            const { data } = await axios.post("http://localhost:3000/enrolled-courses", enrollmentData)
-            return data;
-
-        }, 
-        
-    onSuccess: () => {
-        toast.success(" Enrollment  Successfully!");
-        document.getElementById("my_modal_3").close();
-      
-
+  const enrollMutation = useMutation({
+    mutationFn: async (enrollmentData) => {
+      const { data } = await axios.post(
+        " https://e-learn-zeta.vercel.app/enrolled-courses",
+        enrollmentData
+      );
+      return data;
     },
-        onError: () => {
-            toast.error("Enrollment Failed ");
-        }
-})
 
+    onSuccess: () => {
+      toast.success(" Enrollment  Successfully!");
+      document.getElementById("my_modal_3").close();
+    },
+    onError: () => {
+      toast.error("Enrollment Failed ");
+    },
+  });
 
-    const handleEnroll = (event) => {
-        event.preventDefault();
+  const handleEnroll = (event) => {
+    event.preventDefault();
 
-        const form = event.target;
+    const form = event.target;
 
-        const enrollmentData = {
-        studentName: form.studentName.value,
-          email: form.email.value,
-          phone: parseInt(form.phone.value),
-          title: form.title.value,
-          image: form.image.value,
-            price: parseInt(form.price.value),
-          courseId: course._id,
-           enrolledAt: new Date()
-        };
+    const enrollmentData = {
+      studentName: form.studentName.value,
+      email: form.email.value,
+      phone: parseInt(form.phone.value),
+      title: form.title.value,
+      image: form.image.value,
+      price: parseInt(form.price.value),
+      courseId: course._id,
+      enrolledAt: new Date(),
+    };
 
-        // console.log(enrollmentData)
-        enrollMutation.mutate(enrollmentData)
-    }
+    // console.log(enrollmentData)
+    enrollMutation.mutate(enrollmentData);
+  };
 
   return (
     <div className="text-base-content">

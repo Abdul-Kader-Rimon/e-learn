@@ -5,7 +5,7 @@ import styled from "styled-components";
 const CourseCard = ({_id, title, image, price, category, duration}) => {
   return (
     <StyledWrapper>
-      <div className="card dark:text-black">
+      <div className="card text-black">
         <div className="card__shine" />
         <div className="card__glow" />
         <div className="card__content">
@@ -54,8 +54,8 @@ const StyledWrapper = styled.div`
     --card-text: #1e293b;
     --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 
-    width: 380px;
-    height: 380px;
+    width: 370px;
+    height: 370px;
     background: var(--card-bg);
     border-radius: 20px;
     position: relative;
