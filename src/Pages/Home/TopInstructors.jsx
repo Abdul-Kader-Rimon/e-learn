@@ -23,7 +23,7 @@ const instructors = [
 ];
 const TopInstructors = () => {
   return (
-    <div className="bg-white py-16 px-6">
+    <div className=" py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +39,7 @@ const TopInstructors = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-gray-600 max-w-2xl mx-auto mb-12"
+          className="text-gray-400 max-w-2xl mx-auto mb-12"
         >
           Learn from highly experienced instructors who specialize in delivering
           real-world skills and practical knowledge.
