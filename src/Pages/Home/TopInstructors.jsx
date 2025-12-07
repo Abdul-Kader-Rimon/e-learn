@@ -1,10 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const instructors = [
   {
     name: "Jhankar Mahbub",
     subject: "Sr. Web Developer",
-    bio: "Expertise: JavaScript, ES6, React, Redux, Angular6, Bootstrap, Data visualization, Material Design.",
+    bio: "Expertise: JavaScript, ES6, React, Redux, Angular6, Data visualization, Material Design.",
     image: "https://i.ibb.co.com/5gp3p44b/download-9.jpg",
   },
   {
@@ -24,16 +25,38 @@ const TopInstructors = () => {
   return (
     <div className="bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-6">Top Instructors</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-5xl font-bold mb-6"
+        >
+          Top Instructors
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-gray-600 max-w-2xl mx-auto mb-12"
+        >
           Learn from highly experienced instructors who specialize in delivering
           real-world skills and practical knowledge.
-        </p>
+        </motion.p>
 
         <div className="grid md:grid-cols-3 gap-10 mt-8">
           {instructors.map((inst, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3 + index * 0.2,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300"
             >
               <img
@@ -44,7 +67,7 @@ const TopInstructors = () => {
               <h3 className="text-xl font-semibold">{inst.name}</h3>
               <p className="text-indigo-600 font-medium mt-1">{inst.subject}</p>
               <p className="text-gray-600 mt-3 text-sm">{inst.bio}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
