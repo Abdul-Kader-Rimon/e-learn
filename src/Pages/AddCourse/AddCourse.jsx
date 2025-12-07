@@ -147,7 +147,7 @@ const AddCourse = () => {
                    type="email"
                    name="email"
                    className="input w-full rounded-full focus:outline-gray-300"
-                   placeholder="Course Title"
+                    readOnly
                    required
                  />
                </div>
