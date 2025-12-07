@@ -91,7 +91,7 @@ const Login = () => {
                 Forgot password?
               </NavLink>
             </div>
-            <button className="btn button  mt-4 rounded-full ">
+            <button className="btn button text-black  mt-4 rounded-full ">
               Login
             </button>
           </fieldset>

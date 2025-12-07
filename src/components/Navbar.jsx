@@ -181,24 +181,17 @@ const Navbar = () => {
                   <li className="text-sm font-bold">{user.displayName}</li>
                   <li className="text-xs">{user.email}</li>
                 </div>
-                <li className="mt-3">
+                <li className="my-3">
                   <Link to={"/profile"}>
                     <FaUser /> Profile
                   </Link>
                 </li>
 
-                <li>
-                  <Link to={"/my-models"}>My Models</Link>
-                </li>
-
-                <li>
-                  <Link to={"/my-downloads"}>My Downloads</Link>
-                </li>
-
+         
                 <li>
                   <button
                     onClick={signOutUser}
-                    className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                    className="btn button text-black  btn-xs text-left  py-4"
                   >
                     <IoLogOut /> Logout
                   </button>

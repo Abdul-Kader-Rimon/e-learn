@@ -89,23 +89,23 @@ const Register = () => {
             />
             {/* password field */}
             <div className="relative">
-                          <label className="label">Password</label>
-                          <input
-                            type={show ? "text" : "password"}
-                            name="password"
-                            className="input rounded-full focus:border-0 focus:outline-gray-200"
-                            placeholder="Password"
-                          />
-            
-                          <span
-                            onClick={() => setShow(!show)}
-                            className="absolute right-[25px] top-[30px] cursor-pointer z-50"
-                          >
-                            {show ? <FaEye size={18} /> : <IoEyeOff size={18} />}
-                          </span>
-                        </div>
-            
-            <button className="btn button   mt-4 rounded-full ">
+              <label className="label">Password</label>
+              <input
+                type={show ? "text" : "password"}
+                name="password"
+                className="input rounded-full focus:border-0 focus:outline-gray-200"
+                placeholder="Password"
+              />
+
+              <span
+                onClick={() => setShow(!show)}
+                className="absolute right-[25px] top-[30px] cursor-pointer z-50"
+              >
+                {show ? <FaEye size={18} /> : <IoEyeOff size={18} />}
+              </span>
+            </div>
+
+            <button className="btn button  text-black  mt-4 rounded-full ">
               Register
             </button>
           </fieldset>

@@ -172,7 +172,7 @@ const UpdateCourse = () => {
                 />
               </div>
 
-              <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600 w-full">
+              <button className="btn button text-black  mt-4 rounded-full  ">
                 Update Course
               </button>
             </fieldset>

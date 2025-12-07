@@ -32,39 +32,33 @@ const ForgetPassword = () => {
   };
   return (
     <div>
-     
-       
-        <div className="w-full max-w-md  mx-auto mt-6  sm:p-8 shadow-lg bg-white/5 border border-purple-500 p-4 rounded-lg ">
-          <div>
-            <h2 className="text-center font-bold text-5xl mb-10">
-              Reset Password
-            </h2>
-            <form onSubmit={handleReset}>
-              <label className="block text-lg font-semibold mb-1">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your Email"
-                className="input input-bordered border border-purple-400 w-full bg-white/20 text-purple-600   focus:outline-none focus:ring-2 focus:ring-purple-400 mb-3 hover:scale-105 transition duration-300 delay-150"
-              />
+      <div className="w-full max-w-md  mx-auto mt-6  sm:p-8 shadow-lg bg-white/5 border border-purple-500 p-4 rounded-lg ">
+        <div>
+          <h2 className="text-center font-bold text-5xl mb-10">
+            Reset Password
+          </h2>
+          <form onSubmit={handleReset}>
+            <label className="block text-lg font-semibold mb-1">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your Email"
+              className="input input-bordered border border-purple-400 w-full bg-white   text-black    focus:outline-none focus:ring-2 focus:ring-purple-400 mb-3 hover:scale-105 transition duration-300 delay-150"
+            />
 
-              <button
-                type="submit"
-                className="bg-gradient-to-br from-blue-500 via-purple-600 to-purple-700 text-white px-4 py-2 rounded-md font-bold  w-full mb-3 hover:scale-105 transition duration-300 delay-150"
-              >
-                Reset Password
-              </button>
-            </form>
-            <button
-              onClick={() => navigate("/signin")}
-              className="bg-gradient-to-br  from-blue-500 via-purple-600 to-purple-700 text-white px-4 py-2 rounded-md font-bold  w-full mb-2 hover:scale-105 transition duration-300 delay-150"
-            >
-              Back To Login
+            <button type="submit" className="button w-full py-2 text-black my-4">
+              Reset Password
             </button>
-          </div>
+          </form>
+          <button
+            onClick={() => navigate("/signin")}
+            className="button w-full py-2 text-black"
+          >
+            Back To Login
+          </button>
         </div>
-       
+      </div>
     </div>
   );
 };
