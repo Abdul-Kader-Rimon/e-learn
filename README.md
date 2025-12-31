@@ -1,4 +1,5 @@
  # E-Learn
+ ![Homepage Screenshot](./src/assets/e-learn-homepage.png)
 
 **Live Link:** [https://e-learn-akr.netlify.app/] 
 
