@@ -8,7 +8,7 @@ import ErrorCard from "../../components/ErrorCard";
 
 const fetchMyCourses = async (email) => {
   const { data } = await axios.get(
-    ` https://e-learn-zeta.vercel.app/my-courses?email=${email}`
+    `http://localhost:5000/my-courses?email=${email}`
   );
   return data;
 };

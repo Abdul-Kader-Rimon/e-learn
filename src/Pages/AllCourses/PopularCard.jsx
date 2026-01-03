@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router";
 import styled from "styled-components";
 
-const CourseCard = ({_id, title, image, price, category, duration}) => {
+const PopularCard = ({ _id, title, image, price, category, duration }) => {
   return (
     <StyledWrapper>
-      <div className="card text-black">
+      <div className="card  ">
         <div className="card__shine" />
         <div className="card__glow" />
         <div className="card__content">
@@ -49,13 +49,12 @@ const CourseCard = ({_id, title, image, price, category, duration}) => {
 
 const StyledWrapper = styled.div`
   .card {
-    --card-bg: #ffffff;
-    --card-accent: #7c3aed;
-    --card-text: #1e293b;
-    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-
      
-    height: 370px;
+    --card-accent: #7c3aed;
+     
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    min-width: 300px;
+    height:  370px;
     background: var(--card-bg);
     border-radius: 20px;
     position: relative;
@@ -67,18 +66,7 @@ const StyledWrapper = styled.div`
       Ubuntu, Cantarell, sans-serif;
   }
 
-  .card__shine {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0.8) 50%,
-      rgba(255, 255, 255, 0) 60%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+ 
 
   .card__glow {
     position: absolute;
@@ -195,7 +183,7 @@ const StyledWrapper = styled.div`
     border-radius: 45px;
     transition: all 0.3s;
     cursor: pointer;
-    background: white;
+     
     font-size: 1.2em;
     font-weight: 550;
   }
@@ -284,7 +272,11 @@ const StyledWrapper = styled.div`
       transform: scale(1);
     }
   }
+
+ 
+
 `;
 
 
-export default CourseCard;
+
+export default PopularCard;

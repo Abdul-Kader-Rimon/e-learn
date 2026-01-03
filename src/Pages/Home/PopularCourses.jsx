@@ -1,10 +1,10 @@
 import React from "react";
-import CourseCard from "../AllCourses/CourseCard";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
 import { motion } from "framer-motion";
+import PopularCard from "../AllCourses/PopularCard";
 
 const PopularCourses = () => {
   const {
@@ -15,9 +15,7 @@ const PopularCourses = () => {
   } = useQuery({
     queryKey: ["popular-courses"],
     queryFn: async () => {
-      const { data } = await axios.get(
-        " https://e-learn-zeta.vercel.app/popular-courses"
-      );
+      const { data } = await axios.get("http://localhost:5000/popular-courses");
       return data;
     },
   });
@@ -33,10 +31,17 @@ const PopularCourses = () => {
   if (isError) return <ErrorCard message={error.message} />;
   return (
     <div className="max-w-7xl   mx-auto px-4 py-10">
-      <h2 className="text-4xl md:text-6xl font-bold mb-8 text-center">
-        Popular Courses
-      </h2>
-      <div className="flex text-black flex-wrap justify-center gap-6 px-4">
+      <div className="relative mb-12">
+        
+        <div className="absolute left-0 top-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+        <div className="relative inline-block bg-gray-50 px-8 py-3 rounded-full border border-gray-300 shadow-sm z-10">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900 tracking-wide">
+            Popular Courses
+          </h2>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 justify-items-center max-w-screen-2xl mx-auto">
         {courses.map((course, index) => (
           <motion.div
             key={course._id}
@@ -50,7 +55,7 @@ const PopularCourses = () => {
               ease: [0.43, 0.13, 0.23, 0.96],
             }}
           >
-            <CourseCard
+            <PopularCard
               _id={course._id}
               title={course.title}
               image={course.image}

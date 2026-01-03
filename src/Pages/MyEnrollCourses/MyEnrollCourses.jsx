@@ -19,7 +19,7 @@ const MyEnrollCourses = () => {
     queryKey: ["enrolledCourses"],
     queryFn: async () => {
       const { data } = await axios.get(
-        " https://e-learn-zeta.vercel.app/enrolled-courses"
+        "http://localhost:5000/enrolled-courses"
       );
       return data;
     },

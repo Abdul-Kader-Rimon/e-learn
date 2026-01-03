@@ -16,7 +16,7 @@ const AddCourse = () => {
   const { mutate } = useMutation({
     mutationFn: async (newCourse) => {
       const { data } = await axios.post(
-        " https://e-learn-zeta.vercel.app/courses",
+        "http://localhost:5000/courses",
         newCourse
       );
       return data;

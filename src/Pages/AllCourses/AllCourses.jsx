@@ -6,7 +6,7 @@ import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
 
 const fetchCourses = async (category) => {
-  const { data } = await axios.get(" https://e-learn-zeta.vercel.app/courses", {
+  const { data } = await axios.get("http://localhost:5000/courses", {
     params: { category: category || "" },
   });
   return data;
@@ -70,7 +70,7 @@ const AllCourses = () => {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 my-6 gap-5">
         {courses.length > 0 ? (
           courses.map((courses, index) => (
             <CourseCard

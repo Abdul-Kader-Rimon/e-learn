@@ -12,7 +12,7 @@ const Home = () => {
     document.title = "Home | E-Learn"
   },[])
     return (
-        <div>
+        <div className='w-full'>
             <HeroBanner />
             <Carousel/>
             <PopularCourses />

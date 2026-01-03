@@ -10,7 +10,7 @@ const MyCoursesCard = ({ _id, title, image, price, category, duration }) => {
   const deleteMutation = useMutation({
     mutationFn: async (id) => {
       const { data } = await axios.delete(
-        ` https://e-learn-zeta.vercel.app/delete-course/${id}`
+        `http://localhost:5000/delete-course/${id}`
       );
       return data;
     },

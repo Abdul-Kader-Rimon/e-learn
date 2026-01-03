@@ -8,9 +8,7 @@ import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
 
 const fetchSingleCourseData = async (id) => {
-  const { data } = await axios.get(
-    ` https://e-learn-zeta.vercel.app/courses/${id}`
-  );
+  const { data } = await axios.get(`http://localhost:5000/courses/${id}`);
   return data;
 };
 
