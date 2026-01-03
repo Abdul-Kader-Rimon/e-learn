@@ -39,7 +39,7 @@ const AllCourses = () => {
   if (isError) return <ErrorCard message={error.message} />;
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <div className="flex justify-center items-center my-6 ">
         <select
           onChange={(event) => setSelectedCategory(event.target.value)}

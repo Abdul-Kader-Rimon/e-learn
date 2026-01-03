@@ -32,12 +32,19 @@ const PopularCourses = () => {
   return (
     <div className="max-w-7xl   mx-auto px-4 py-10">
       <div className="relative mb-12">
-        
         <div className="absolute left-0 top-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         <div className="relative inline-block bg-gray-50 px-8 py-3 rounded-full border border-gray-300 shadow-sm z-10">
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-900 tracking-wide">
+          <motion.h2
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="text-xl md:text-2xl font-semibold text-gray-900 tracking-wide"
+          >
             Popular Courses
-          </h2>
+          </motion.h2>
         </div>
       </div>
 
