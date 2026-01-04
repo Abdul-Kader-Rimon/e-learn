@@ -26,8 +26,12 @@ const Navbar = () => {
     <div className="w-11/12 mx-auto">
       <div className="navbar   ">
         <div className="navbar-start">
-          <div className="dropdown z-10">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div className="dropdown z-50">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost   lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -53,6 +57,15 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink to={"/all-courses"}>Courses</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/about"}>About</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/contact-us"}>Contact Us</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/blog"}>Blog</NavLink>
               </li>
               <li>
                 <a>Dashboard</a>
@@ -83,6 +96,15 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to={"/all-courses"}>Courses</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/about"}>About</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/contact-us"}>Contact Us</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/blog"}>Blog</NavLink>
             </li>
             <li>
               <details className="group transition-all duration-300">

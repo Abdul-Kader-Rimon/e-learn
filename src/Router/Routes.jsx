@@ -14,6 +14,9 @@ import MyEnrollCourses from "../Pages/MyEnrollCourses/MyEnrollCourses";
 import Error from "../components/Error";
 import MyProfile from "../components/MyProfile";
 import PublicRoute from "./PublicRoute";
+import About from "../components/AdditionalPages/About";
+import Contact from "../components/AdditionalPages/Contact";
+import Blog from "../components/AdditionalPages/Blog";
  
 
 export const router = createBrowserRouter([
@@ -28,6 +31,18 @@ export const router = createBrowserRouter([
       {
         path: "/all-courses",
         element:<AllCourses /> ,
+      },
+      {
+        path: "/about",
+        element:<About /> ,
+      },
+      {
+        path: "/contact-us",
+        element:<Contact /> ,
+      },
+      {
+        path: "/blog",
+        element:<Blog /> ,
       },
       {
         path: "/add-course",
