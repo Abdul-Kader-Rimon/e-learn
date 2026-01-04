@@ -17,6 +17,11 @@ import PublicRoute from "./PublicRoute";
 import About from "../components/AdditionalPages/About";
 import Contact from "../components/AdditionalPages/Contact";
 import Blog from "../components/AdditionalPages/Blog";
+import Dashboard from "../Dashboard/Dashboard";
+import DashboardLayout from "../Dashboard/Dashboard";
+import DashboardHome from "../Dashboard/DashboardHome";
+import FAQ from "../components/AdditionalPages/FQA";
+import PrivacyPolicy from "../components/AdditionalPages/PrivacyPolicy";
  
 
 export const router = createBrowserRouter([
@@ -30,43 +35,34 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-courses",
-        element:<AllCourses /> ,
+        element: <AllCourses />,
       },
       {
         path: "/about",
-        element:<About /> ,
+        element: <About />,
       },
       {
         path: "/contact-us",
-        element:<Contact /> ,
+        element: <Contact />,
       },
       {
         path: "/blog",
-        element:<Blog /> ,
+        element: <Blog />,
       },
       {
-        path: "/add-course",
-        element: <PrivateRoute>
-          <AddCourse />
-        </PrivateRoute>
-          ,
+        path: "/fqa",
+        element: <FAQ />,
       },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy/>,
+      },
+
       {
         path: "/course-details/:id",
-        element: (
-          <PrivateRoute>
-            <CourseDetails />
-          </PrivateRoute>
-        ),
+        element: <CourseDetails />,
       },
-      {
-        path: "/my-courses",
-        element: (
-          <PrivateRoute>
-            <MyCourses />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/update-course/:id",
         element: (
@@ -75,41 +71,63 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/my-enrolledCourses",
-        element: (
-          <PrivateRoute>
-            <MyEnrollCourses />
-          </PrivateRoute>
-        ),
-      },
- 
+
       {
         path: "/auth/login",
-        element: <PublicRoute>
-          <Login />
-        </PublicRoute> ,
+        element: (
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        ),
       },
- 
+
       {
         path: "/auth/register",
-        element: <PublicRoute>
-          <Register />
-        </PublicRoute> ,
+        element: (
+          <PublicRoute>
+            <Register />
+          </PublicRoute>
+        ),
       },
       {
         path: "/auth/forgetpassword",
         element: <ForgetPassword />,
       },
-      {
-        path: "/my-profile",
-        element: <PrivateRoute>
-          <MyProfile />
-          </PrivateRoute>,
-      },
+
       {
         path: "*",
-        element: <Error/>,
+        element: <Error />,
+      },
+    ],
+  },
+
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardHome />,
+      },
+      {
+        path: "my-profile",
+        element: <MyProfile />,
+      },
+      {
+        path: "my-enrolledCourses",
+        element: <MyEnrollCourses />,
+      },
+      {
+        path: "add-course",
+        element: <AddCourse />,
+      },
+      {
+        path: "my-courses",
+        element: <MyCourses />,
       },
     ],
   },

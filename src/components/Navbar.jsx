@@ -67,20 +67,11 @@ const Navbar = () => {
               <li>
                 <NavLink to={"/blog"}>Blog</NavLink>
               </li>
-              <li>
-                <a>Dashboard</a>
-                <ul className="p-2">
-                  <li>
-                    <Link to={"/my-enrolledCourses"}>My Enrolled course</Link>
-                  </li>
-                  <li>
-                    <Link to={"/add-course"}>Add course</Link>
-                  </li>
-                  <li>
-                    <Link to={"/my-courses"}>My added course</Link>
-                  </li>
-                </ul>
-              </li>
+            <li>
+                         <Link to="/fqa" className="hover:text-white transition-colors">
+                           FAQ
+                         </Link>
+                       </li>
             </ul>
           </div>
           <Link to={"/"}>
@@ -107,30 +98,10 @@ const Navbar = () => {
               <NavLink to={"/blog"}>Blog</NavLink>
             </li>
             <li>
-              <details className="group transition-all duration-300">
-                <summary className="cursor-pointer">Dashboard</summary>
-
-                <ul
-                  className="
-                    p-4 w-56 space-y-2 bg-base-100 shadow-lg rounded-lg
-                    origin-top
-                    transition-all duration-300
-                    max-h-0 opacity-0 scale-95 overflow-hidden
-                    group-open:max-h-96 group-open:opacity-100 group-open:scale-100 z-10
-                  "
-                >
-                  <li>
-                    <Link to={"/my-enrolledCourses"}>My Enrolled course</Link>
-                  </li>
-                  <li>
-                    <Link to={"/add-course"}>Add course</Link>
-                  </li>
-                  <li>
-                    <Link to={"/my-courses"}>My added course</Link>
-                  </li>
-                </ul>
-              </details>
-            </li>
+                         <Link to="/fqa" className="hover:text-white transition-colors">
+                           FAQ
+                         </Link>
+                       </li>
           </ul>
         </div>
 
@@ -197,17 +168,9 @@ const Navbar = () => {
                   <li className="text-sm font-bold">{user.displayName}</li>
                   <li className="text-xs">{user.email}</li>
                 </div>
-                <li className="my-1">
-                  <Link to={"/my-profile"}>
-                    <FaUser /> Profile
-                  </Link>
-                </li>
-                <li className="my-1">
-                  <Link to={"/my-courses"}>My Courses</Link>
-                </li>
-                <li className="my-1">
-                  <Link to={"/my-enrolledCourses"}>My Enrolled Courses</Link>
-                </li>
+                <button className="my-4 button border text-black border-purple-200 py-2">
+                  <Link to={"/dashboard"}>Dashboard</Link>
+                </button>
 
                 <li>
                   <button

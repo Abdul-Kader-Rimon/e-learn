@@ -39,8 +39,8 @@ const CourseDetails = () => {
   if (isError) return <ErrorCard message={error.message} />;
 
   return (
-    <div className="max-w-4xl mx-auto p-6  text-black">
-      <div className="rounded-2xl overflow-hidden shadow-xl bg-white ">
+    <div className="max-w-4xl mx-auto p-6   ">
+      <div className="rounded-2xl overflow-hidden shadow-xl  ">
         <img
           src={course.image}
           alt="course banner"
@@ -90,7 +90,7 @@ const CourseDetails = () => {
           </div>
 
           <button
-            className="button my-5 py-2 px-10"
+            className="button my-5 py-2 px-10 text-black"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             Enroll Now

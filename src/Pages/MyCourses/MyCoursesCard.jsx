@@ -27,7 +27,7 @@ const MyCoursesCard = ({ _id, title, image, price, category, duration }) => {
   };
 
   return (
-    <div className="border p-5 text-black rounded-xl simple-card">
+    <div className="border p-5  rounded-xl  ">
       <img
         src={image}
         alt={title}
@@ -39,17 +39,21 @@ const MyCoursesCard = ({ _id, title, image, price, category, duration }) => {
       <p className="my-2 font-bold text-purple-600"> Price: ${price}</p>
 
       <Link to={`/course-details/${_id}`}>
-        <button className="button w-full px-4 py-2">View Details</button>
+        <button className="button w-full px-4 text-black py-2">
+          View Details
+        </button>
       </Link>
 
       <div className="mt-4 flex gap-2 justify-between items-center">
         <Link to={`/update-course/${_id}`}>
-          <button className="button w-full px-4 md:px-10  py-2">Update</button>
+          <button className="button w-full px-4 md:px-10 text-black  py-2">
+            Update
+          </button>
         </Link>
         <Link>
           <button
             onClick={() => handleDelete(_id)}
-            className="button w-full px-4 md:px-10   py-2"
+            className="button w-full px-4 md:px-10 text-black   py-2"
           >
             Delete
           </button>
