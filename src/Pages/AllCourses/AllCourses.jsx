@@ -5,9 +5,8 @@ import CourseCard from "./CourseCard";
 import Loader from "../../components/Loader";
 import ErrorCard from "../../components/ErrorCard";
 
- 
 const fetchCourses = async (category, page, limit) => {
-  const { data } = await axios.get("http://localhost:5000/courses", {
+  const { data } = await axios.get(" https://e-learn-zeta.vercel.app/courses", {
     params: {
       category: category || "",
       page,
@@ -17,11 +16,13 @@ const fetchCourses = async (category, page, limit) => {
   return data;
 };
 
- 
 const fetchCourseCount = async (category) => {
-  const { data } = await axios.get("http://localhost:5000/courses/count", {
-    params: { category: category || "" },
-  });
+  const { data } = await axios.get(
+    " https://e-learn-zeta.vercel.app/courses/count",
+    {
+      params: { category: category || "" },
+    }
+  );
   return data.count;
 };
 
@@ -30,17 +31,14 @@ const AllCourses = () => {
   const [page, setPage] = useState(1);
   const limit = 8;
 
- 
   useEffect(() => {
     document.title = "All Courses | E-Learn";
   }, []);
 
- 
   useEffect(() => {
     setPage(1);
   }, [selectedCategory]);
 
- 
   const {
     data: courses = [],
     isLoading,
@@ -52,40 +50,38 @@ const AllCourses = () => {
     keepPreviousData: true,
   });
 
- 
   const { data: totalCount = 0 } = useQuery({
     queryKey: ["courseCount", selectedCategory],
     queryFn: () => fetchCourseCount(selectedCategory),
   });
 
   const totalPages = Math.max(page, Math.ceil(totalCount / limit));
-  
- const getPageNumbers = () => {
-   const maxPageButtons = 3;
-   let startPage, endPage;
 
-   if (totalPages <= maxPageButtons) {
-     startPage = 1;
-     endPage = totalPages;
-   } else {
-     if (page <= 2) {
-       startPage = 1;
-       endPage = maxPageButtons;
-     } else if (page >= totalPages - 1) {
-       startPage = totalPages - maxPageButtons + 1;
-       endPage = totalPages;
-     } else {
-       startPage = page - 1;
-       endPage = page + 1;
-     }
-   }
+  const getPageNumbers = () => {
+    const maxPageButtons = 3;
+    let startPage, endPage;
 
-   const pages = [];
-   for (let i = startPage; i <= endPage; i++) pages.push(i);
-   return pages;
- };
+    if (totalPages <= maxPageButtons) {
+      startPage = 1;
+      endPage = totalPages;
+    } else {
+      if (page <= 2) {
+        startPage = 1;
+        endPage = maxPageButtons;
+      } else if (page >= totalPages - 1) {
+        startPage = totalPages - maxPageButtons + 1;
+        endPage = totalPages;
+      } else {
+        startPage = page - 1;
+        endPage = page + 1;
+      }
+    }
 
-  
+    const pages = [];
+    for (let i = startPage; i <= endPage; i++) pages.push(i);
+    return pages;
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">

@@ -22,7 +22,9 @@ const DashboardHome = () => {
         setLoading(true);
 
         // ✅ Backend call (localhost:5000)
-        const res = await axios.get("http://localhost:5000/enrolled-courses");
+        const res = await axios.get(
+          " https://e-learn-zeta.vercel.app/enrolled-courses"
+        );
 
         // ✅ ensure array
         const allEnrolled = Array.isArray(res.data) ? res.data : [];
@@ -74,9 +76,7 @@ const DashboardHome = () => {
               {user?.displayName || "Learner"}
             </span>{" "}
           </h1>
-          <p className="  text-lg">
-            Here are your most recent courses
-          </p>
+          <p className="  text-lg">Here are your most recent courses</p>
         </div>
 
         <div className="flex justify-between items-center mb-6">
@@ -98,9 +98,7 @@ const DashboardHome = () => {
             <h3 className="text-xl font-semibold mb-2">
               No courses enrolled yet
             </h3>
-            <p className="  mb-6">
-              Start learning by enrolling in a course
-            </p>
+            <p className="  mb-6">Start learning by enrolling in a course</p>
             <Link
               to="/all-courses"
               className="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg"

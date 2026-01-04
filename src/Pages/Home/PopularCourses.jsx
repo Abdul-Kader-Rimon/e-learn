@@ -15,7 +15,9 @@ const PopularCourses = () => {
   } = useQuery({
     queryKey: ["popular-courses"],
     queryFn: async () => {
-      const { data } = await axios.get("http://localhost:5000/popular-courses");
+      const { data } = await axios.get(
+        " https://e-learn-zeta.vercel.app/popular-courses"
+      );
       return data;
     },
   });

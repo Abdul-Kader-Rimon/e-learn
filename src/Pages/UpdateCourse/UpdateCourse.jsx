@@ -6,7 +6,9 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router";
 
 const UpdateCourseData = async (id) => {
-  const { data } = await axios.get(`http://localhost:5000/courses/${id}`);
+  const { data } = await axios.get(
+    ` https://e-learn-zeta.vercel.app/courses/${id}`
+  );
   return data;
 };
 
@@ -28,7 +30,7 @@ const UpdateCourse = () => {
   const { mutate } = useMutation({
     mutationFn: async (updatedCourse) => {
       const { data } = await axios.put(
-        `http://localhost:5000/update-course/${id}`,
+        ` https://e-learn-zeta.vercel.app/update-course/${id}`,
         updatedCourse
       );
       return data;

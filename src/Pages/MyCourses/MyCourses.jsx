@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 const fetchMyCourses = async (email) => {
   const { data } = await axios.get(
-    `http://localhost:5000/my-courses?email=${email}`
+    ` https://e-learn-zeta.vercel.app/my-courses?email=${email}`
   );
   return data;
 };

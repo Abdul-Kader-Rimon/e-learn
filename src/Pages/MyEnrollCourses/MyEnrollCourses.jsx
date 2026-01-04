@@ -20,7 +20,7 @@ const MyEnrollCourses = () => {
     queryKey: ["enrolledCourses"],
     queryFn: async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/enrolled-courses"
+        " https://e-learn-zeta.vercel.app/enrolled-courses"
       );
       return data;
     },
@@ -51,7 +51,7 @@ const MyEnrollCourses = () => {
           </motion.h2>
         </div>
       </div>
- 
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5  ">
         {courses.map((course) => (
           <MyEnrolledCourseCard key={course._id} course={course} />
